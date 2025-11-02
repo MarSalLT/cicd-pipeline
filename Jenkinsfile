@@ -39,8 +39,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 script {
-                    def port = (env.BRANCH_NAME == 'main') ? '3000' : '3001'
-                    def imageName = (env.BRANCH_NAME == 'main') ? 'nodemain:v1.0' : 'nodedev:v1.0'
+                    def port = '3001'
+                    def imageName = 'nodedev:v1.0'
 
                     // Remove containers safely
                     bat """
