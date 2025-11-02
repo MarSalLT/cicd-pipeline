@@ -30,7 +30,7 @@ pipeline {
             steps {
                 script {
                     // Use different images for main vs other branches
-                    def imageName = (env.BRANCH_NAME == 'main') ? 'nodemain:v1.0' : 'nodedev:v1.0'
+                    def imageName = 'nodedev:v1.0'
                     bat "docker build -t ${imageName} ."
                 }
             }
