@@ -42,12 +42,15 @@ pipeline {
                     def port = (env.BRANCH_NAME == 'main') ? '3000' : '3001'
                     def imageName = (env.BRANCH_NAME == 'main') ? 'nodemain:v1.0' : 'nodedev:v1.0'
 
-                    // Remove containers of this image safely
+                    // Remove containers safely
                     bat """
+                    set CONTAINERS=
                     for /F "tokens=*" %%i in ('docker ps -a -q --filter "ancestor=${imageName}"') do (
+                        set CONTAINERS=%%i
                         echo Removing container %%i
                         docker rm -f %%i
                     )
+                    if "%CONTAINERS%"=="" echo No containers to remove
                     """
 
                     // Run container
