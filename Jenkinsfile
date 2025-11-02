@@ -54,7 +54,7 @@ pipeline {
                     """
 
                     // Run container
-                    bat "docker run -d -p ${port}:${port} ${imageName}"
+                    bat "docker run -d -p ${port}:3000 ${imageName}"
                 }
             }
         }
