@@ -8,8 +8,10 @@
     "react-scripts": "1.0.14"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start:main": "set PORT=3000 && react-scripts start",
+    "start:dev": "set PORT=3001 && react-scripts start",
+    "build:main": "set PORT=3000 && react-scripts build",
+    "build:dev": "set PORT=3001 && react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
